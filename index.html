@@ -8,6 +8,12 @@
     <title>Todo using Vue</title>
 </head>
 <body>
+    <style>
+        .finished{
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+    </style>
     <div id="app">
         <div class="container">
             <h2 class="text-center mt-5">
@@ -28,7 +34,11 @@
                 </thead>
                 <tbody>
                     <tr v-for="(task, index) in tasks" :key="index">
-                        <td>{{task.name}}</td>
+                        <td>
+                            <span :class="{'finished':task.status === 'completed'}">
+                                {{task.name}}
+                            </span>
+                        </td>
                         <td style="width: 120px;">
                             <span @click="changeStatus(index)" style="cursor: pointer;">
                                 {{task.status}}
