@@ -25,5 +25,8 @@ new Vue({
                 });
             this.task=''
         },
+        deleteTask(index) {
+            this.tasks.splice(index,1);
+        },
     }
 })
