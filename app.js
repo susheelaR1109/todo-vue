@@ -4,6 +4,7 @@ new Vue({
         return {
             task:'',
             edited:null,
+            availableStatus: ['to-do','in-progress','completed'],
             tasks: [
                 {
                     name:'Buy banana',
@@ -36,6 +37,11 @@ new Vue({
         editTask(index){
             this.task = this.tasks[index].name;
             this.edited = index
+        },
+        changeStatus(index){
+            let newIndex = this.availableStatus.indexOf(this.tasks[index].status);
+            if(++newIndex > 2) newIndex=0;
+            this.tasks[index].status = this.availableStatus[newIndex];
         },
     }
 })
