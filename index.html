@@ -30,7 +30,11 @@
                     <tr v-for="(task, index) in tasks" :key="index">
                         <td>{{task.name}}</td>
                         <td>{{task.status}}</td>
-                        <td><span class="fa fa-pen"></span></td>
+                        <td>
+                            <div class="text-center" @click="editTask(index)">
+                                <span class="fa fa-pen"></span>
+                            </div>
+                        </td>
                         <td>
                             <div class="text-center" @click="deleteTask(index)">
                                 <span class="fa fa-trash"></span>
