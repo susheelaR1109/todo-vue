@@ -14,8 +14,8 @@
                 My Vue Todo App
             </h2>
             <div class="d-flex mt-3">
-                <input type="text" class="form-control" placeholder="Enter Task">
-                <button class="btn btn-warning rounded-0">Add</button>
+                <input v-model="task" type="text" class="form-control" placeholder="Enter Task">
+                <button @click="submitTask" class="btn btn-warning rounded-0">Add</button>
             </div>
             <table class="table table-bordered mt-5">
                 <thead>
