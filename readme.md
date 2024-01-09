@@ -1,6 +1,6 @@
 # Todo application using Vue.js
 
-## Technologies used:
+#### Technologies used:
 - HTML
 - CSS
 - Bootstrap
