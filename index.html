@@ -40,7 +40,7 @@
                             </span>
                         </td>
                         <td style="width: 120px;">
-                            <span @click="changeStatus(index)" style="cursor: pointer;">
+                            <span @click="changeStatus(index)" style="cursor: pointer;" :class="{'text-danger': task.status === 'to-do', 'text-warning':task.status === 'in-progress', 'text-success':task.status === 'completed',}">
                                 {{firstCharUpper(task.status)}}
                             </span>
                         </td>
