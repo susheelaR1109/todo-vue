@@ -11,6 +11,7 @@
     <style>
         .edit-mouse{
             cursor: pointer;
+        }
         .finished{
             text-decoration: line-through;
             opacity: 0.5;
@@ -49,7 +50,7 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <div class="text-center" @click="editTask(index)">
+                                    <div class="edit-mouse text-center" @click="editTask(index)">
                                         <span class="fa fa-pen"></span>
                                     </div>
                                 </td>
