@@ -19,7 +19,9 @@ new Vue({
     },
     methods: {
         submitTask(){
-            // console.log(this.task)
+            console.log('submitTask: ',this.tasks)
+            console.log("this.task: ", this.task)
+            console.log("this.edited: ", this.edited)
             if(this.task.length === 0) return;
             if(this.edited === null) {
                 this.tasks.push({
@@ -32,7 +34,11 @@ new Vue({
             this.task=''
         },
         deleteTask(index) {
+            console.log('deleteTask before: ',this.tasks)
             this.tasks.splice(index,1);
+            this.edited=null
+            console.log('deleteTask after: ',this.tasks)
+
         },
         editTask(index){
             this.task = this.tasks[index].name;
