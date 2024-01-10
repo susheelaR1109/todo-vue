@@ -1,5 +1,49 @@
-new Vue({
-    el:'#app',
+Vue.component('todo',{
+    template: `
+    <div class="col-md-8 offset-md-2">
+                    <h2 class="text-center mt-5">
+                        My Vue Todo App
+                    </h2>
+                    <div class="d-flex mt-3">
+                        <input v-model="task" type="text" class="form-control rounded-4" placeholder="Enter Task">
+                        <button @click="submitTask" class="btn btn-warning rounded-4 ms-2">Add</button>
+                    </div>
+                    <table class="table table-hover mt-5">
+                        <thead>
+                            <tr>
+                                <th scope="col">Task</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"class="text-center"></th>
+                                <th scope="col"class="text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(task, index) in tasks" :key="index">
+                                <td>
+                                    <span :class="{'finished':task.status === 'completed'}">
+                                        {{task.name}}
+                                    </span>
+                                </td>
+                                <td style="width: 120px;">
+                                    <span @click="changeStatus(index)" style="cursor: pointer;" :class="{'text-danger': task.status === 'to-do', 'text-warning':task.status === 'in-progress', 'text-success':task.status === 'completed',}">
+                                        {{firstCharUpper(task.status)}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="edit-mouse text-center" @click="editTask(index)">
+                                        <span class="fa fa-pen"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-center" @click="deleteTask(index)">
+                                        <span class="fa fa-trash"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    `,
     data: function(){
         return {
             task:'',
@@ -48,4 +92,8 @@ new Vue({
             return str.charAt(0).toUpperCase() + str.slice(1)
         }
     }
+})
+
+new Vue({
+    el:'#app',
 })
